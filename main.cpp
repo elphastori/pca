@@ -24,12 +24,12 @@ int main(int argc, char * argv[]) {
         return -1;
     }
 
-    vector<vector<string>> values;
+    vector<vector<double>> values;
 
     string line;
 
-    while ( getline(in, line) ) {
-        vector<string> point = split_string(line, ' ');
+    while (getline(in, line)) {
+        vector<double> point = split_string(line, ' ');
         values.push_back(point);
     }
 

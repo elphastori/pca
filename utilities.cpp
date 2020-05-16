@@ -11,12 +11,12 @@ using namespace std;
 
 namespace TRNELP001 {
 
-    vector<string> split_string(const string& str, char delim) {
+    vector<double> split_string(const string& str, char delim) {
         stringstream ss(str);
         string token;
-        vector<string> cont;
+        vector<double> cont;
         while (getline(ss, token, delim)) {
-            cont.push_back(token);
+            cont.push_back(stof(token));
         }
         return cont;
     }
