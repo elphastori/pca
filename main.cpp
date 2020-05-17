@@ -35,7 +35,6 @@ int main(int argc, char * argv[]) {
         values.push_back(point);
     }
 
-    // Close file
     in.close();
 
     MatrixXd m = covariance_matrix(values);
@@ -43,13 +42,22 @@ int main(int argc, char * argv[]) {
     EigenSolver<MatrixXd> es(m);
 
     cout << "Eigenvalues:" << endl;
-    cout << es.eigenvalues() << endl << endl;
+
+    cout << es.eigenvalues().real() << endl << endl;
 
     cout << "Eigenvectors:" << endl;
-    cout << es.eigenvectors() << endl << endl;
+    cout << es.eigenvectors().real() << endl << endl;
 
     cout << "Covariance matrix:" << endl;
     cout << m << endl << endl;
+
+    cout << "Total variance:" << endl;
+    cout << es.eigenvalues().real().sum() << endl << endl;
+
+    for (int i = 0; i < es.eigenvalues().real().rows(); ++i) {
+        cout << "Component " << i + 1 << endl;
+        cout << (es.eigenvalues().real().row(i) / es.eigenvalues().real().sum()) * 100 << "%" << endl << endl;
+    }
 
     return 0;
 
