@@ -1,5 +1,5 @@
-#ifndef UTILITIES_H
-#define UTILITIES_H
+#ifndef PCA_MATH_H
+#define PCA_MATH_H
 
 #include <iostream>
 #include <vector>

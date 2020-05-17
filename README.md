@@ -16,15 +16,23 @@
 
 ### main.cpp
 
-Driver file taking command arguments
+Driver file for starting and showing the results for PCA
 
-### utilities.h
+### pca_math.h
 
-Commons functions used like splitting strings or bit packing
+Includes methods for calculating the covariance matrix 
 
-### utilities.cpp
+### pca_math.cpp
 
-Implementation for utilities
+Implementation for covariance calculation methods
+
+### loader.h
+
+Utility for loading values for data.txt file into a matrix
+
+### loader.cpp
+
+Implementation for load_files method
 
 ### test.cpp
 

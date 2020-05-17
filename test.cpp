@@ -8,7 +8,7 @@
 #define CATCH_CONFIG_MAIN //So that catch will define a main method
 #include "catch.hpp"
 
-#include "utilities.h"
+#include "pca_math.h"
 
 using namespace std;
 
