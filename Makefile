@@ -3,7 +3,7 @@ pca test_bin: main.o utilities.o test.o
 	g++ -o bin/test_bin bin/test.o bin/utilities.o -std=c++11
 main.o: main.cpp 
 	@mkdir -p bin
-	g++ -c -o bin/main.o main.cpp -std=c++11
+	g++ -c -o bin/main.o main.cpp -std=c++11 -I ./eigen-3.3.7/
 utilities.o: utilities.cpp
 	@mkdir -p bin
 	g++ -c -o bin/utilities.o utilities.cpp -std=c++11
