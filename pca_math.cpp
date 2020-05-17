@@ -64,12 +64,6 @@ namespace TRNELP001 {
             }
         }
 
-        // Psedo-check for correctness
-        // m(0,0) = 0.616555556;
-        // m(0,1) = 0.615444444;
-        // m(1,0) = 0.615444444;
-        // m(1,1) = 0.716555556;
-
         return m;
     }
 
@@ -78,10 +72,12 @@ namespace TRNELP001 {
         double eigenvalue_sum = eigenvalues.sum();
 
         output << "Eigenvalues:" << endl;
-        cout << eigenvalues << endl << endl;
+        output << eigenvalues << endl << endl;
 
         output << "Eigenvectors:" << endl;
-        output << es.eigenvectors() << endl << endl;
+        output << es.eigenvectors() << endl;
+        output << "Each column in the matrix above in an eigenvector with the January value at the " << endl;
+        output << "top and the July value at the bottom" << endl << endl;
 
         output << "Covariance matrix:" << endl;
         output << m << endl << endl;
@@ -90,9 +86,14 @@ namespace TRNELP001 {
         output << eigenvalue_sum << endl << endl;
 
         for (int i = 0; i < eigenvalues.rows(); i++) {
-            output << "Component " << i + 1 << endl;
+            output << "Principal Component " << i + 1 << endl;
             output << (eigenvalues.row(i)(0) / eigenvalue_sum) * 100 << "%" << endl << endl;
         }
+        output << "The eigenvalue of each principal component was used to calculate the percentage." << endl;
+        output << "The eigenvector with the larger percentage has a higher spread, the data varies " << endl;
+        output << "most in its direction." << endl << endl;
+        output << "The purpose of Principal Component Analysis is to identify these directions in " << endl;
+        output << "which the data varies most." << endl;
     }
 
 }

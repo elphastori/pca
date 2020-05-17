@@ -25,7 +25,7 @@ int main(int argc, char * argv[]) {
     MatrixXd m = covariance_matrix(values);
     EigenSolver<MatrixXd> es(m);
 
-    cout << endl << "Results saved to " << OUTPUT_FILE << endl << endl;
+    cout << "Results saved to " << OUTPUT_FILE << endl << endl;
 
     // Print results to screen
     show_results(es, m, cout);

@@ -7,6 +7,9 @@
 1. Compile with `make`
 2. Execute clusterer located inside bin folder eg. `bin/pca`
 
+The result are saved in a text file in the root folder, output.txt.
+The input data can be modified using the data.txt file also found in the root folder
+
 # Testing
 
 1. Compile with `make`
@@ -20,7 +23,7 @@ Driver file for starting and showing the results for PCA
 
 ### pca_math.h
 
-Includes methods for calculating the covariance matrix 
+Includes methods for calculating the covariance matrix and displaying the results
 
 ### pca_math.cpp
 

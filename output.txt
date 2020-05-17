@@ -1,7 +1,12 @@
 Eigenvalues:
+154.311
+9.16296
+
 Eigenvectors:
  (0.939141,0) (-0.343532,0)
  (0.343532,0)  (0.939141,0)
+Each column in the matrix above in an eigenvector with the January value at the 
+top and the July value at the bottom
 
 Covariance matrix:
 137.181 46.8283
@@ -10,9 +15,15 @@ Covariance matrix:
 Total variance:
 163.474
 
-Component 2
+Principal Component 1
 94.3948%
 
-Component 1
+Principal Component 2
 5.60516%
 
+The eigenvalue of each principal component was used to calculate the percentage.
+The eigenvector with the larger percentage has a higher spread, the data varies 
+most in its direction.
+
+The purpose of Principal Component Analysis is to identify these directions in 
+which the data varies most.
