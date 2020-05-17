@@ -65,10 +65,10 @@ namespace TRNELP001 {
         vector<vector<double>> matrix;
         int n_dimensions = values[0].size();
 
-        for (int i = 0; i < 2; ++i) {
+        for (int i = 0; i < n_dimensions; ++i) {
             vector<double> row;
-            for (int j = 0; j < 2; ++j) {
-                row.push_back(2.0);//row.push_back(covariance(values, i, j));
+            for (int j = 0; j < n_dimensions; ++j) {
+                row.push_back(covariance(values, i, j));
             }
             matrix.push_back(row);
         }
