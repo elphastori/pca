@@ -1,5 +1,3 @@
-#include "utilities.h"
-
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -7,10 +5,13 @@
 #include <fstream>
 #include <sstream>
 
+#include <Eigen/Dense>
+
 using namespace std;
+using namespace Eigen;
 
 namespace TRNELP001 {
-
+    
     vector<double> split_string(const string& str, char delim) {
         stringstream ss(str);
         string token;
@@ -61,19 +62,17 @@ namespace TRNELP001 {
         return product_sums / (n - 1);
     }
 
-    vector<vector<double>> covariance_matrix(vector<vector<double>> values) {
-        vector<vector<double>> matrix;
+    MatrixXd covariance_matrix(vector<vector<double>> values) {
         int n_dimensions = values[0].size();
+        MatrixXd m(n_dimensions, n_dimensions);
 
         for (int i = 0; i < n_dimensions; ++i) {
-            vector<double> row;
             for (int j = 0; j < n_dimensions; ++j) {
-                row.push_back(covariance(values, i, j));
+                m(i, j) = covariance(values, i, j);
             }
-            matrix.push_back(row);
         }
 
-        return matrix;
+        return m;
     }
 
 }

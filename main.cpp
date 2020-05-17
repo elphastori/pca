@@ -10,10 +10,9 @@
 
 #include <Eigen/Dense>
  
-using Eigen::MatrixXd;
-
 using namespace std;
 using namespace TRNELP001;
+using namespace Eigen;
 
 int main(int argc, char * argv[]) {
 
@@ -39,26 +38,18 @@ int main(int argc, char * argv[]) {
     // Close file
     in.close();
 
-    vector<vector<double>> matrix = covariance_matrix(values);
+    MatrixXd m = covariance_matrix(values);
 
-    // Display covariance matrix
-    for (int i = 0; i < matrix.size(); ++i) {
-        for (int j = 0; j < matrix[i].size(); ++j) {
-            cout << matrix[i][j] << " ";
-        }
-        cout << endl;
-    }
+    EigenSolver<MatrixXd> es(m);
 
-    int n_dimensions = values[0].size();
-    MatrixXd m(n_dimensions, n_dimensions);
+    cout << "Eigenvalues:" << endl;
+    cout << es.eigenvalues() << endl << endl;
 
-    for (int i = 0; i < n_dimensions; ++i) {
-        for (int j = 0; j < n_dimensions; ++j) {
-            m(i, j) = matrix[i][j];
-        }
-    }
+    cout << "Eigenvectors:" << endl;
+    cout << es.eigenvectors() << endl << endl;
 
-    cout << m << endl;
+    cout << "Covariance matrix:" << endl;
+    cout << m << endl << endl;
 
     return 0;
 

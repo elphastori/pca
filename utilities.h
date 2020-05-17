@@ -8,7 +8,10 @@
 #include <fstream>
 #include <sstream>
 
+#include <Eigen/Dense>
+
 using namespace std;
+using namespace Eigen;
 
 namespace TRNELP001 {
 
@@ -20,7 +23,7 @@ namespace TRNELP001 {
 
     double covariance(vector<vector<double>> values, int dim_a, int dim_b);
 
-    vector<vector<double>> covariance_matrix(vector<vector<double>> values);
+    MatrixXd covariance_matrix(vector<vector<double>> values);
 }
 
 #endif
