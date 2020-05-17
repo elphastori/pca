@@ -21,4 +21,15 @@ namespace TRNELP001 {
         return cont;
     }
 
+    double dimension_mean(vector<vector<double>> values, int dimension) {
+        double sum = 0;
+        int n = values.size();
+
+        for (int i = 0; i < n; ++i) {
+            sum += values[i][dimension];
+        }
+
+        return sum / n;
+    }
+
 }

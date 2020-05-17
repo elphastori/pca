@@ -14,6 +14,8 @@ namespace TRNELP001 {
 
     vector<double> split_string(const string& str, char delim);
 
+    double dimension_mean(vector<vector<double>> values, int dimension);
+
 }
 
 #endif
