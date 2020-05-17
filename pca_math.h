@@ -22,6 +22,8 @@ namespace TRNELP001 {
     double covariance(vector<vector<double>> values, int dim_a, int dim_b);
 
     MatrixXd covariance_matrix(vector<vector<double>> values);
+
+    MatrixXd show_results(EigenSolver<MatrixXd> es, MatrixXd m, ostream &output);
 }
 
 #endif

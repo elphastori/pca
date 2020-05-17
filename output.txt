@@ -1,0 +1,21 @@
+Eigenvalues:
+154.311
+9.16296
+
+Eigenvectors:
+        0 -0.343532
+ 0.343532  0.939141
+
+Covariance matrix:
+137.181 46.8283
+46.8283 26.2925
+
+Total variance:
+163.474
+
+Component 1
+94.3948%
+
+Component 2
+5.60516%
+

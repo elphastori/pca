@@ -67,4 +67,27 @@ namespace TRNELP001 {
         return m;
     }
 
+    MatrixXd show_results(EigenSolver<MatrixXd> es, MatrixXd m, ostream &output) {
+        auto eigenvalues = es.eigenvalues().real();
+        auto eigenvectors = es.eigenvectors().real();
+        double eigenvalue_sum = eigenvalues.sum();
+
+        output << "Eigenvalues:" << endl;
+        output << eigenvalues << endl << endl;
+
+        output << "Eigenvectors:" << endl;
+        output << eigenvectors << endl << endl;
+
+        output << "Covariance matrix:" << endl;
+        output << m << endl << endl;
+
+        output << "Total variance:" << endl;
+        output << eigenvalue_sum << endl << endl;
+
+        for (int i = 0; i < eigenvalues.rows(); ++i) {
+            output << "Component " << i + 1 << endl;
+            output << (eigenvalues.row(i) / eigenvalue_sum) * 100 << "%" << endl << endl;
+        }
+    }
+
 }
