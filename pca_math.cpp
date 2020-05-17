@@ -64,19 +64,27 @@ namespace TRNELP001 {
             }
         }
 
+        // Psedo-check for correctness
+        // m(0,0) = 0.616555556;
+        // m(0,1) = 0.615444444;
+        // m(1,0) = 0.615444444;
+        // m(1,1) = 0.716555556;
+
         return m;
     }
 
     MatrixXd show_results(EigenSolver<MatrixXd> es, MatrixXd m, ostream &output) {
         auto eigenvalues = es.eigenvalues().real();
-        auto eigenvectors = es.eigenvectors().real();
         double eigenvalue_sum = eigenvalues.sum();
 
         output << "Eigenvalues:" << endl;
-        output << eigenvalues << endl << endl;
+        for (int i = eigenvalues.rows() - 1; i >= 0; --i) {
+                output << eigenvalues.row(i).col(0)[0] << " " << endl;
+        }
+        cout << endl;
 
         output << "Eigenvectors:" << endl;
-        output << eigenvectors << endl << endl;
+        output << es.eigenvectors() << endl << endl;
 
         output << "Covariance matrix:" << endl;
         output << m << endl << endl;
@@ -84,9 +92,9 @@ namespace TRNELP001 {
         output << "Total variance:" << endl;
         output << eigenvalue_sum << endl << endl;
 
-        for (int i = 0; i < eigenvalues.rows(); ++i) {
-            output << "Component " << i + 1 << endl;
-            output << (eigenvalues.row(i) / eigenvalue_sum) * 100 << "%" << endl << endl;
+        for (int i = eigenvalues.rows() - 1; i >= 0; --i) {
+            output << "Component " << eigenvalues.rows() - i << endl;
+            output << (eigenvalues.row(i)(0) / eigenvalue_sum) * 100 << "%" << endl << endl;
         }
     }
 
