@@ -78,10 +78,7 @@ namespace TRNELP001 {
         double eigenvalue_sum = eigenvalues.sum();
 
         output << "Eigenvalues:" << endl;
-        for (int i = eigenvalues.rows() - 1; i >= 0; --i) {
-                output << eigenvalues.row(i).col(0)[0] << " " << endl;
-        }
-        cout << endl;
+        cout << eigenvalues << endl << endl;
 
         output << "Eigenvectors:" << endl;
         output << es.eigenvectors() << endl << endl;
@@ -92,7 +89,7 @@ namespace TRNELP001 {
         output << "Total variance:" << endl;
         output << eigenvalue_sum << endl << endl;
 
-        for (int i = eigenvalues.rows() - 1; i >= 0; --i) {
+        for (int i = 0; i < eigenvalues.rows(); i++) {
             output << "Component " << eigenvalues.rows() - i << endl;
             output << (eigenvalues.row(i)(0) / eigenvalue_sum) * 100 << "%" << endl << endl;
         }
