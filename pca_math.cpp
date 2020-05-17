@@ -90,7 +90,7 @@ namespace TRNELP001 {
         output << eigenvalue_sum << endl << endl;
 
         for (int i = 0; i < eigenvalues.rows(); i++) {
-            output << "Component " << eigenvalues.rows() - i << endl;
+            output << "Component " << i + 1 << endl;
             output << (eigenvalues.row(i)(0) / eigenvalue_sum) * 100 << "%" << endl << endl;
         }
     }
