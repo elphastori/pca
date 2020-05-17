@@ -49,12 +49,16 @@ int main(int argc, char * argv[]) {
         cout << endl;
     }
 
-    MatrixXd m(2,2);
-    m(0,0) = 3;
-    m(1,0) = 2.5;
-    m(0,1) = -1;
-    m(1,1) = m(1,0) + m(0,1);
-    cout << m << std::endl;
+    int n_dimensions = values[0].size();
+    MatrixXd m(n_dimensions, n_dimensions);
+
+    for (int i = 0; i < n_dimensions; ++i) {
+        for (int j = 0; j < n_dimensions; ++j) {
+            m(i, j) = matrix[i][j];
+        }
+    }
+
+    cout << m << endl;
 
     return 0;
 
