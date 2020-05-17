@@ -5,6 +5,8 @@
 #include <fstream>
 #include <sstream>
 
+#include "utilities.h"
+
 #include <Eigen/Dense>
 
 using namespace std;
