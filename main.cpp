@@ -21,13 +21,16 @@ int main(int argc, char * argv[]) {
 
     vector<vector<double>> values = load_values(INPUT_FILE);
 
+    // Calculate covariance matrix
     MatrixXd m = covariance_matrix(values);
     EigenSolver<MatrixXd> es(m);
 
     cout << endl << "Results saved to " << OUTPUT_FILE << endl << endl;
 
+    // Print results to screen
     show_results(es, m, cout);
 
+    // Save results to text file
     ofstream out(OUTPUT_FILE.c_str());
     show_results(es, m, out);
     out.close();
