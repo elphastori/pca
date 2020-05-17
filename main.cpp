@@ -22,21 +22,25 @@ int main(int argc, char * argv[]) {
     MatrixXd m = covariance_matrix(values);
     EigenSolver<MatrixXd> es(m);
 
+    auto eigenvalues = es.eigenvalues().real();
+    auto eigenvectors = es.eigenvectors().real();
+    double eigenvalue_sum = eigenvalues.sum();
+
     cout << "Eigenvalues:" << endl;
-    cout << es.eigenvalues().real() << endl << endl;
+    cout << eigenvalues << endl << endl;
 
     cout << "Eigenvectors:" << endl;
-    cout << es.eigenvectors().real() << endl << endl;
+    cout << eigenvectors << endl << endl;
 
     cout << "Covariance matrix:" << endl;
     cout << m << endl << endl;
 
     cout << "Total variance:" << endl;
-    cout << es.eigenvalues().real().sum() << endl << endl;
+    cout << eigenvalue_sum << endl << endl;
 
-    for (int i = 0; i < es.eigenvalues().real().rows(); ++i) {
+    for (int i = 0; i < eigenvalues.rows(); ++i) {
         cout << "Component " << i + 1 << endl;
-        cout << (es.eigenvalues().real().row(i) / es.eigenvalues().real().sum()) * 100 << "%" << endl << endl;
+        cout << (eigenvalues.row(i) / eigenvalue_sum) * 100 << "%" << endl << endl;
     }
 
     return 0;
