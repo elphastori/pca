@@ -13,16 +13,6 @@ using namespace std;
 using namespace Eigen;
 
 namespace TRNELP001 {
-    
-    vector<double> split_string(const string& str, char delim) {
-        stringstream ss(str);
-        string token;
-        vector<double> cont;
-        while (getline(ss, token, delim)) {
-            cont.push_back(stof(token));
-        }
-        return cont;
-    }
 
     double dimension_mean(vector<vector<double>> values, int dimension) {
         double sum = 0;
