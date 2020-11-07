@@ -1,6 +1,6 @@
-# Principal Component Analysis Implementation
+# Principal Component Analysis
 
-## Instructions
+Principal Component Analysis implementation in C++ on multidimensional data
 
 ## Performing PCA
 
